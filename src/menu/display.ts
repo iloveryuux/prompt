@@ -1,5 +1,7 @@
-import readline from 'node:readline'
+import { blue, bold } from '@ryuux/palette'
 import { VISIBLE_COUNT } from '../consts'
+
+import readline from 'node:readline'
 
 function clearScreen(): void {
   readline.cursorTo(process.stdout, 0, 0)
@@ -16,11 +18,19 @@ function calculateVisibleRange(
 }
 
 function formatOption(option: string, isSelected: boolean): string {
-  return `${isSelected ? '>' : ' '} ${option}`
+  const indicator = isSelected ? blue('›') : ' '
+  const formattedOption = isSelected ? blue(option) : option
+  return `${indicator} ${formattedOption}`
 }
 
-export function renderMenu(options: string[], selectedIndex: number): void {
+export function renderMenu(
+  title: string,
+  options: string[],
+  selectedIndex: number
+): void {
   clearScreen()
+  console.log(`${blue('ϟ')} ${bold(title)}`)
+
   const { start, end } = calculateVisibleRange(options.length, selectedIndex)
 
   options.slice(start, end).forEach((option, index) => {

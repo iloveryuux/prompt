@@ -1,40 +1,41 @@
-import type { KeyActionMap } from '../types'
+import { handleInput, restoreStdinMode, setStdinRawMode } from './stdin'
 import { createKeyActionMap } from './actions'
+import { setupCleanup } from './cleanup'
 import { renderMenu } from './display'
 
-export async function menu(options: string[]): Promise<number> {
-  return new Promise<number>(resolve => {
+import type { KeyActionMap, Menu } from '../types'
+
+export async function menu(title: string, options: string[]): Promise<Menu> {
+  return new Promise<Menu>(resolve => {
     const selectedIndex = 0
-    process.stdin.setRawMode(true)
-    process.stdin.resume()
 
-    const keyActions: KeyActionMap = createKeyActionMap(
-      options,
-      resolve,
-      process.stdin
-    )
+    setStdinRawMode()
 
-    const handleInput = (input: Buffer) => {
-      const action = keyActions[input.toString()]
-      if (action) action()
+    const handleSelection = (index: number) => {
+      const result: Menu = {
+        index,
+        text: index >= 0 ? options[index] : 'Cancelled'
+      }
+      cleanup()
+      resolve(result)
     }
 
     const cleanup = () => {
-      process.stdin.off('data', handleInput)
-      process.stdin.setRawMode(false)
-      process.stdin.resume()
+      process.stdin.off('data', inputHandler)
+      restoreStdinMode()
     }
 
-    setupCleanup(cleanup)
-    renderMenu(options, selectedIndex)
-    process.stdin.on('data', handleInput)
-  })
-}
+    const keyActions: KeyActionMap = createKeyActionMap(
+      title, // Pass the title here
+      options,
+      handleSelection,
+      process.stdin
+    )
+    const inputHandler = handleInput(keyActions)
 
-function setupCleanup(cleanup: () => void) {
-  process.on('exit', cleanup)
-  process.on('SIGINT', () => {
-    cleanup()
-    process.exit()
+    setupCleanup(cleanup)
+
+    renderMenu(title, options, selectedIndex)
+    process.stdin.on('data', inputHandler)
   })
 }

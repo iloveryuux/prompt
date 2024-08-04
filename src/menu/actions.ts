@@ -1,8 +1,10 @@
 import { KEY_CTRL_C, KEY_DOWN, KEY_ENTER, KEY_UP } from '../consts'
-import type { KeyActionMap } from '../types'
 import { renderMenu } from './display'
 
+import type { KeyActionMap } from '../types'
+
 export function createKeyActionMap(
+  title: string,
   options: string[],
   resolve: (index: number) => void,
   input: NodeJS.ReadableStream
@@ -11,12 +13,12 @@ export function createKeyActionMap(
 
   const handleUp = () => {
     selectedIndex = Math.max(0, selectedIndex - 1)
-    renderMenu(options, selectedIndex)
+    renderMenu(title, options, selectedIndex)
   }
 
   const handleDown = () => {
     selectedIndex = Math.min(options.length - 1, selectedIndex + 1)
-    renderMenu(options, selectedIndex)
+    renderMenu(title, options, selectedIndex)
   }
 
   const handleEnter = () => {

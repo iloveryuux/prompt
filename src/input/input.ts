@@ -1,7 +1,7 @@
 import { blue, brightCyan, red } from '@ryuux/palette'
 import { createReadlineInterface } from './interface'
-import { sleep } from './utils'
 import { validators } from './validator'
+import { sleep } from './utils'
 
 import type readline from 'node:readline'
 
