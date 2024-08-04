@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.0.0](https://github.com/iloveryuux/prompt/compare/v1.1.0...v2.0.0) (2024-08-04)
+
+
+### ⚠ BREAKING CHANGES
+
+* add title and colors menu functions
+
+### Features
+
+* add title and colors menu functions ([1b28b45](https://github.com/iloveryuux/prompt/commit/1b28b453c2278b8488c1e30f1691a759ef730c5d))
+
 ## [1.1.0](https://github.com/iloveryuux/prompt/compare/v1.0.0...v1.1.0) (2024-08-04)
 
 
