@@ -2,12 +2,15 @@ import { handleInput, restoreStdinMode, setStdinRawMode } from './stdin'
 import { createKeyActionMap } from './actions'
 import { setupCleanup } from './cleanup'
 import { renderMenu } from './display'
+import type { KeyActionMap, Menu, MenuIcons } from '../types'
 
-import type { KeyActionMap, Menu } from '../types'
-
-export async function menu(title: string, options: string[]): Promise<Menu> {
+export async function menu(
+  title: string,
+  options: string[],
+  icons?: Partial<MenuIcons>
+): Promise<Menu> {
   return new Promise<Menu>(resolve => {
-    const selectedIndex = 0
+    let selectedIndex = 0
 
     setStdinRawMode()
 
@@ -26,16 +29,17 @@ export async function menu(title: string, options: string[]): Promise<Menu> {
     }
 
     const keyActions: KeyActionMap = createKeyActionMap(
-      title, // Pass the title here
+      title,
       options,
       handleSelection,
-      process.stdin
+      process.stdin,
+      icons
     )
     const inputHandler = handleInput(keyActions)
 
     setupCleanup(cleanup)
 
-    renderMenu(title, options, selectedIndex)
+    renderMenu(title, options, selectedIndex, icons)
     process.stdin.on('data', inputHandler)
   })
 }
