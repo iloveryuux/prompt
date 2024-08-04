@@ -1,5 +1,9 @@
 import { blue, bold } from '@ryuux/palette'
-import { VISIBLE_COUNT, DEFAULT_TITLE_ICON, DEFAULT_SELECTED_ICON } from '../consts'
+import {
+  VISIBLE_COUNT,
+  DEFAULT_TITLE_ICON,
+  DEFAULT_SELECTED_ICON
+} from '../consts'
 import readline from 'node:readline'
 import type { MenuIcons } from '../types'
 
@@ -32,7 +36,10 @@ export const renderMenu = (
   selectedIndex: number,
   icons?: MenuIcons
 ): void => {
-  const { title: titleIcon = DEFAULT_TITLE_ICON, selected: selectedIcon = DEFAULT_SELECTED_ICON } = icons || {}
+  const {
+    title: titleIcon = DEFAULT_TITLE_ICON,
+    selected: selectedIcon = DEFAULT_SELECTED_ICON
+  } = icons || {}
 
   clearScreen()
   console.log(`${blue(titleIcon)} ${bold(title)}`)
