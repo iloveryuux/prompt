@@ -4,7 +4,9 @@
   "description": "A powerful and customizable CLI prompt library for interactive user input.",
   "main": "dist/index.js",
   "type": "module",
-  "files": ["dist/**/*"],
+  "files": [
+    "dist/**/*"
+  ],
   "packageManager": "pnpm@9.6.0",
   "scripts": {
     "build": "tsup",
@@ -15,7 +17,11 @@
     "lint:check": "biome lint",
     "prepublishOnly": "npm run build"
   },
-  "keywords": ["iloveryuux-tools", "cli", "prompt"],
+  "keywords": [
+    "iloveryuux-tools",
+    "cli",
+    "prompt"
+  ],
   "author": "Ryo",
   "license": "MIT",
   "exports": {
