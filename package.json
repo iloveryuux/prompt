@@ -1,10 +1,12 @@
 {
   "name": "@ryuux/prompt",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "description": "A powerful and customizable CLI prompt library for interactive user input.",
   "main": "dist/index.js",
   "type": "module",
-  "files": ["dist/**/*"],
+  "files": [
+    "dist/**/*"
+  ],
   "packageManager": "pnpm@9.6.0",
   "scripts": {
     "build": "tsup",
@@ -16,7 +18,11 @@
     "commit": "commitlint --edit ${1}",
     "prepublishOnly": "npm run build"
   },
-  "keywords": ["iloveryuux-tools", "cli", "prompt"],
+  "keywords": [
+    "iloveryuux-tools",
+    "cli",
+    "prompt"
+  ],
   "author": "Ryo",
   "license": "MIT",
   "exports": {
