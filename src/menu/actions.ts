@@ -1,6 +1,6 @@
-import { KEY_UP, KEY_DOWN, KEY_ENTER, KEY_CTRL_C } from '../consts'
-import { renderMenu } from './display'
+import { KEY_CTRL_C, KEY_DOWN, KEY_ENTER, KEY_UP } from '../consts'
 import type { KeyActionMap } from '../types'
+import { renderMenu } from './display'
 
 export function createKeyActionMap(
   options: string[],
