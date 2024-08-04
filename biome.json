@@ -1,0 +1,3 @@
+{
+  "extends": ["@ryuux/config/biome"]
+}
