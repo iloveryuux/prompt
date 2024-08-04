@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.0](https://github.com/iloveryuux/prompt/compare/v2.0.0...v2.1.0) (2024-08-04)
+
+
+### Features
+
+* menu function customizable icons ([26f0d8a](https://github.com/iloveryuux/prompt/commit/26f0d8a20a3663eb23ca6b153ff4218e2afd6dc2))
+
 ## [2.0.0](https://github.com/iloveryuux/prompt/compare/v1.1.0...v2.0.0) (2024-08-04)
 
 
