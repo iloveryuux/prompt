@@ -1,4 +1,4 @@
-import { DEFAULT_TITLE_ICON, DEFAULT_ICON } from '../shared/constants'
+import { DEFAULT_TITLE_ICON, DEFAULT_SELECTION_ICON } from '../shared/constants'
 import { getVisibleCount } from '../shared/utils'
 import { blue, bold } from '@ryuux/palette'
 import readline from 'node:readline'
@@ -41,7 +41,7 @@ export const renderMenu = (
 ): void => {
   const {
     title: titleIcon = DEFAULT_TITLE_ICON,
-    selected: selectedIcon = DEFAULT_ICON
+    selected: selectedIcon = DEFAULT_SELECTION_ICON
   } = icons
 
   clearScreen()
