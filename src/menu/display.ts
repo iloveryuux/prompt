@@ -1,6 +1,8 @@
-import { blue, bold } from '@ryuux/palette'
 import { DEFAULT_TITLE_ICON, DEFAULT_ICON } from '../shared/constants'
+import { getVisibleCount } from '../shared/utils'
+import { blue, bold } from '@ryuux/palette'
 import readline from 'node:readline'
+
 import type { MenuIcons } from '../types'
 
 const clearScreen = (): void => {
@@ -8,17 +10,13 @@ const clearScreen = (): void => {
   readline.clearScreenDown(process.stdout)
 }
 
-const getVisibleCount = (): number => {
-  const { rows } = process.stdout
-  return Math.max(rows - 2, 1)
-}
-
 const calculateVisibleRange = (
   totalOptions: number,
   currentIndex: number,
   visibleCount: number
 ): { start: number; end: number } => {
-  let start = Math.max(0, currentIndex - Math.floor(visibleCount / 2))
+  const halfVisibleCount = Math.floor(visibleCount / 2)
+  let start = Math.max(0, currentIndex - halfVisibleCount)
   let end = Math.min(totalOptions, start + visibleCount)
 
   if (end - start < visibleCount) {
@@ -32,27 +30,26 @@ const formatOption = (
   option: string,
   isSelected: boolean,
   selectedIcon: string
-): string => {
-  const indicator = isSelected ? selectedIcon : ' '
-  return `${indicator} ${isSelected ? blue(option) : option}`
-}
+): string =>
+  `${isSelected ? selectedIcon : ' '} ${isSelected ? blue(option) : option}`
 
 export const renderMenu = (
   title: string,
   options: string[],
   selectedIndex: number,
-  icons?: MenuIcons
+  icons: MenuIcons = { title: DEFAULT_TITLE_ICON, selected: DEFAULT_ICON }
 ): void => {
-  const {
-    title: titleIcon = DEFAULT_TITLE_ICON,
-    selected: selectedIcon = DEFAULT_ICON
-  } = icons || {}
+  const { title: titleIcon, selected: selectedIcon } = icons
 
   clearScreen()
   console.log(`${blue(titleIcon)} ${bold(title)}`)
 
   const visibleCount = getVisibleCount()
-  const { start, end } = calculateVisibleRange(options.length, selectedIndex, visibleCount)
+  const { start, end } = calculateVisibleRange(
+    options.length,
+    selectedIndex,
+    visibleCount
+  )
 
   options.slice(start, end).forEach((option, index) => {
     const isSelected = start + index === selectedIndex
