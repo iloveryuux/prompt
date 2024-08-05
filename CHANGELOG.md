@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.2.1](https://github.com/iloveryuux/prompt/compare/v2.2.0...v2.2.1) (2024-08-05)
+
+
+### Bug Fixes
+
+* showing top 10 options first ([8d8086a](https://github.com/iloveryuux/prompt/commit/8d8086a5d8a5fcf7f7492778addc80d69605db80))
+* using terminal space to display possible options ([2998407](https://github.com/iloveryuux/prompt/commit/2998407e301113754e380490c5d5e376f1af1370))
+
 ## [2.2.0](https://github.com/iloveryuux/prompt/compare/v2.1.1...v2.2.0) (2024-08-05)
 
 
