@@ -6,32 +6,33 @@ import type { KeyActionMap, MenuIcons } from '../types'
 export function createKeyActionMap(
   title: string,
   options: string[],
-  resolve: (index: number) => void,
+  onSelection: (index: number) => void,
   input: NodeJS.ReadableStream,
   icons?: MenuIcons
 ): KeyActionMap {
   let selectedIndex = 0
 
-  const handleUp = () => {
-    selectedIndex = (selectedIndex - 1 + options.length) % options.length
+  const updateAndRenderMenu = (newIndex: number) => {
+    selectedIndex = (newIndex + options.length) % options.length
     renderMenu(title, options, selectedIndex, icons)
   }
 
-  const handleDown = () => {
-    selectedIndex = (selectedIndex + 1) % options.length
-    renderMenu(title, options, selectedIndex, icons)
-  }
+  const handleUp = () => updateAndRenderMenu(selectedIndex - 1)
+  const handleDown = () => updateAndRenderMenu(selectedIndex + 1)
 
   const handleEnter = () => {
-    input.pause()
-    process.stdin.setRawMode(false)
-    resolve(selectedIndex)
+    cleanUp()
+    onSelection(selectedIndex)
   }
 
   const handleCtrlC = () => {
+    cleanUp()
+    onSelection(-1)
+  }
+
+  const cleanUp = () => {
     input.pause()
     process.stdin.setRawMode(false)
-    resolve(-1)
   }
 
   return {
