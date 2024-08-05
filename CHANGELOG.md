@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.1](https://github.com/iloveryuux/prompt/compare/v2.1.0...v2.1.1) (2024-08-05)
+
+
+### Bug Fixes
+
+* prevent automatic formatting of package.json with release-please ([d9c8f43](https://github.com/iloveryuux/prompt/commit/d9c8f43cf52d2cd7634243c3b568ad2a0a07bdc6))
+
 ## [2.1.0](https://github.com/iloveryuux/prompt/compare/v2.0.0...v2.1.0) (2024-08-04)
 
 
