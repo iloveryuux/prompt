@@ -1,8 +1,8 @@
 import { brightCyan, red } from '@ryuux/palette'
-import { createReadlineInterface } from './interface'
-import { validators } from './validator'
 import { sleep } from '../shared/utils'
+import { createReadlineInterface } from './interface'
 import { promptUser } from './prompt'
+import { validators } from './validator'
 
 async function getValidInput(
   question: string,
@@ -28,9 +28,9 @@ async function getValidInput(
 
 export async function input(
   question: string,
-  options?: { result?: 'number' | 'boolean' }
+  options?: { type?: 'number' | 'boolean' }
 ): Promise<string | number | boolean> {
-  const resultType = options?.result
+  const resultType = options?.type
   const formattedQuestion =
     resultType === 'boolean' ? `${question} (y/n):` : question
   const validator = resultType ? validators[resultType] : undefined

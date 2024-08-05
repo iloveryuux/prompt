@@ -1,4 +1,4 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { input } from '../src'
 
 vi.mock('../src', async () => {
@@ -13,7 +13,7 @@ describe('input function', () => {
   beforeEach(() => {
     const mockInput = vi.mocked(input)
     mockInput.mockImplementation(async (_, options) => {
-      if (options?.result === 'number') return 10
+      if (options?.type === 'number') return 10
 
       return 'Ryo'
     })
@@ -29,7 +29,7 @@ describe('input function', () => {
   })
 
   it('returns a number when { result: "number" } is passed', async () => {
-    const number = await input('Enter your age:', { result: 'number' })
+    const number = await input('Enter your age:', { type: 'number' })
     expect(number).toBe(10)
   })
 })
