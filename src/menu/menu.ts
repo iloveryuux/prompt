@@ -17,7 +17,7 @@ export async function menu(
     const handleSelection = (index: number) => {
       const result: Menu = {
         index,
-        text: index >= 0 ? options[index] : 'Cancelled'
+        text: options[index]
       }
       cleanup()
       resolve(result)
