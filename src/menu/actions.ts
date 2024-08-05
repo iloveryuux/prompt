@@ -13,12 +13,12 @@ export function createKeyActionMap(
   let selectedIndex = 0
 
   const handleUp = () => {
-    selectedIndex = Math.max(0, selectedIndex - 1)
+    selectedIndex = (selectedIndex - 1 + options.length) % options.length
     renderMenu(title, options, selectedIndex, icons)
   }
 
   const handleDown = () => {
-    selectedIndex = Math.min(options.length - 1, selectedIndex + 1)
+    selectedIndex = (selectedIndex + 1) % options.length
     renderMenu(title, options, selectedIndex, icons)
   }
 
