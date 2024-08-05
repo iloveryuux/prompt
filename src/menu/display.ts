@@ -3,7 +3,7 @@ import {
   VISIBLE_COUNT,
   DEFAULT_TITLE_ICON,
   DEFAULT_SELECTED_ICON
-} from '../consts'
+} from '../shared/constants'
 import readline from 'node:readline'
 import type { MenuIcons } from '../types'
 
