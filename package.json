@@ -1,6 +1,6 @@
 {
   "name": "@ryuux/prompt",
-  "version": "2.2.1",
+  "version": "2.3.0",
   "description": "A powerful and customizable CLI prompt library for interactive user input.",
   "type": "module",
   "main": "dist/index.js",

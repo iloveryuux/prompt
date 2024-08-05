@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.3.0](https://github.com/iloveryuux/prompt/compare/v2.2.1...v2.3.0) (2024-08-05)
+
+
+### Features
+
+* add timeout parameter for input ([2353127](https://github.com/iloveryuux/prompt/commit/23531274cbb3e6bcace7106979578d2c3fc2e14e))
+
+
+### Bug Fixes
+
+* renaming parameter for clarity ([5695668](https://github.com/iloveryuux/prompt/commit/5695668bed78421090f53a37132a42a84916ec1c))
+* undefined icons ([27a77db](https://github.com/iloveryuux/prompt/commit/27a77db2f48745e71ffe6cfa703405e9bbc71938))
+
 ## [2.2.1](https://github.com/iloveryuux/prompt/compare/v2.2.0...v2.2.1) (2024-08-05)
 
 
