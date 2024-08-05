@@ -37,9 +37,12 @@ export const renderMenu = (
   title: string,
   options: string[],
   selectedIndex: number,
-  icons: MenuIcons = { title: DEFAULT_TITLE_ICON, selected: DEFAULT_ICON }
+  icons: MenuIcons = {}
 ): void => {
-  const { title: titleIcon, selected: selectedIcon } = icons
+  const {
+    title: titleIcon = DEFAULT_TITLE_ICON,
+    selected: selectedIcon = DEFAULT_ICON
+  } = icons
 
   clearScreen()
   console.log(`${blue(titleIcon)} ${bold(title)}`)
