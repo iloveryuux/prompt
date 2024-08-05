@@ -8,3 +8,4 @@ export const DEFAULT_TITLE_ICON =
 export const SELECTION_ICONS = ['›', '▶', '↳']
 export const DEFAULT_SELECTION_ICON =
   SELECTION_ICONS[Math.floor(Math.random() * SELECTION_ICONS.length)]
+export const TIMEOUT_MS = 30 * 1000
