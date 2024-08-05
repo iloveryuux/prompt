@@ -1,3 +1,6 @@
 {
-  "extends": ["@ryuux/config/biome"]
+  "extends": ["@ryuux/config/biome"],
+  "files": {
+    "ignore": ["package.json"]
+  }
 }
