@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.2.0](https://github.com/iloveryuux/prompt/compare/v2.1.1...v2.2.0) (2024-08-05)
+
+
+### Features
+
+* allow cyclic selection in menu ([3fba953](https://github.com/iloveryuux/prompt/commit/3fba9539e60241079bbdcfa72b55ad1675ca516d))
+* throwing "error" when pressing ctrl c ([6fd4a3f](https://github.com/iloveryuux/prompt/commit/6fd4a3f104cd14087571b7b2385ff061bc6278ef))
+
+
+### Bug Fixes
+
+* space input ([0e760fd](https://github.com/iloveryuux/prompt/commit/0e760fdd1c61596cdfecd1fb5c47a73ab412cb71))
+
 ## [2.1.1](https://github.com/iloveryuux/prompt/compare/v2.1.0...v2.1.1) (2024-08-05)
 
 
