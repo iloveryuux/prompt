@@ -9,6 +9,7 @@
   ],
   "packageManager": "pnpm@9.6.0",
   "scripts": {
+    "test": "vitest",
     "build": "tsup",
     "build:watch": "tsup --watch",
     "format": "biome format --write",
@@ -45,7 +46,8 @@
     "@types/node": "^22.1.0",
     "lefthook": "^1.7.11",
     "tsup": "^8.2.4",
-    "typescript": "^5.5.4"
+    "typescript": "^5.5.4",
+    "vitest": "^2.0.5"
   },
   "dependencies": {
     "@ryuux/palette": "^1.0.0"
