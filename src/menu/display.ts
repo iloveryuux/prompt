@@ -1,9 +1,5 @@
 import { blue, bold } from '@ryuux/palette'
-import {
-  VISIBLE_COUNT,
-  DEFAULT_TITLE_ICON,
-  DEFAULT_ICON
-} from '../shared/constants'
+import { DEFAULT_TITLE_ICON, DEFAULT_ICON } from '../shared/constants'
 import readline from 'node:readline'
 import type { MenuIcons } from '../types'
 
@@ -12,15 +8,21 @@ const clearScreen = (): void => {
   readline.clearScreenDown(process.stdout)
 }
 
+const getVisibleCount = (): number => {
+  const { rows } = process.stdout
+  return Math.max(rows - 2, 1)
+}
+
 const calculateVisibleRange = (
   totalOptions: number,
-  currentIndex: number
+  currentIndex: number,
+  visibleCount: number
 ): { start: number; end: number } => {
-  let start = Math.max(0, currentIndex - Math.floor(VISIBLE_COUNT / 2))
-  let end = Math.min(totalOptions, start + VISIBLE_COUNT)
+  let start = Math.max(0, currentIndex - Math.floor(visibleCount / 2))
+  let end = Math.min(totalOptions, start + visibleCount)
 
-  if (end - start < VISIBLE_COUNT) {
-    start = Math.max(0, end - VISIBLE_COUNT)
+  if (end - start < visibleCount) {
+    start = Math.max(0, end - visibleCount)
   }
 
   return { start, end }
@@ -49,7 +51,8 @@ export const renderMenu = (
   clearScreen()
   console.log(`${blue(titleIcon)} ${bold(title)}`)
 
-  const { start, end } = calculateVisibleRange(options.length, selectedIndex)
+  const visibleCount = getVisibleCount()
+  const { start, end } = calculateVisibleRange(options.length, selectedIndex, visibleCount)
 
   options.slice(start, end).forEach((option, index) => {
     const isSelected = start + index === selectedIndex
