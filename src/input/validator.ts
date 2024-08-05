@@ -1,4 +1,4 @@
-import { ValidatorFunction } from '../types'
+import type { ValidatorFunction } from '../types'
 
 export const validators: Record<string, ValidatorFunction> = {
   number: (answer: string) => {

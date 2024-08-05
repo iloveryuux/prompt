@@ -11,7 +11,7 @@ export async function menu(
   icons?: Partial<MenuIcons>
 ): Promise<Menu> {
   return new Promise<Menu>(resolve => {
-    let selectedIndex = 0
+    const selectedIndex = 0
 
     setStdinRawMode()
 

@@ -17,7 +17,7 @@ const calculateVisibleRange = (
 ): { start: number; end: number } => {
   const halfVisibleCount = Math.floor(visibleCount / 2)
   let start = Math.max(0, currentIndex - halfVisibleCount)
-  let end = Math.min(totalOptions, start + visibleCount)
+  const end = Math.min(totalOptions, start + visibleCount)
 
   if (end - start < visibleCount) {
     start = Math.max(0, end - visibleCount)

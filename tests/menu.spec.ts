@@ -1,8 +1,8 @@
 import { describe, it, beforeEach, afterEach, expect, vi } from 'vitest'
-import { Readable, Writable } from 'stream'
+import { Readable, Writable } from 'node:stream'
 import { menu } from '../src'
 
-import readline from 'readline'
+import readline from 'node:readline'
 
 describe('menu', () => {
   let rl: readline.Interface
