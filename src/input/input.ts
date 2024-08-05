@@ -1,7 +1,7 @@
 import { brightCyan, red } from '@ryuux/palette'
 import { createReadlineInterface } from './interface'
 import { validators } from './validator'
-import { sleep } from './utils'
+import { sleep } from '../utils/utils'
 import { promptUser } from './prompt'
 
 async function getValidInput(

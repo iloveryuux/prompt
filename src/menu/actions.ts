@@ -1,7 +1,7 @@
 import { KEY_CTRL_C, KEY_DOWN, KEY_ENTER, KEY_UP } from '../consts'
 import { renderMenu } from './display'
 import { red } from '@ryuux/palette'
-import { sleep } from '../input/utils'
+import { sleep } from '../utils/utils'
 
 import type { KeyActionMap, MenuIcons } from '../types'
 
