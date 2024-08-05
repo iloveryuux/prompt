@@ -4,4 +4,4 @@ export const KEY_ENTER = '\r'
 export const KEY_CTRL_C = '\u0003'
 export const VISIBLE_COUNT = 10
 export const DEFAULT_TITLE_ICON = 'ϟ'
-export const DEFAULT_SELECTED_ICON = '›'
+export const DEFAULT_ICON = '›'
