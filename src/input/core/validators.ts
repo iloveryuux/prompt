@@ -1,6 +1,4 @@
-import type { Validator } from '../types'
-
-export const validators: Record<string, Validator> = {
+export const validators = {
   number: (input: string): number | null => {
     const parsed = Number(input)
     return Number.isNaN(parsed) ? null : parsed

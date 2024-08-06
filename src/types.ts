@@ -12,13 +12,11 @@ export interface IconSet {
   selected?: string
 }
 
-export type Validator = (input: string) => string | number | boolean | null
-
 export type Format = 'uppercase' | 'lowercase' | 'capitalize' | 'none'
 
-export type InputConfig = {
+export interface InputConfig<T = string> {
   type?: 'number' | 'boolean'
   timeout?: number
   format?: Format
-  default?: string | number | boolean
+  default?: T
 }
