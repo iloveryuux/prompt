@@ -1,0 +1,14 @@
+{
+  "name": "@ryuux/prompt-example",
+  "description": "Examples of Using the @ryuux/prompt Library",
+  "type": "module",
+  "main": "index.js",
+  "keywords": ["example", "prompt-example"],
+  "scripts": {
+    "menu": "node menu/WhatIsYourFavoritePokemon.js",
+    "input": "node input/WhatIsYourAge.js"
+  },
+  "dependencies": {
+    "@ryuux/prompt": "^2.3.0"
+  }
+}
