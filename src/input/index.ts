@@ -31,10 +31,12 @@ async function getInput(
       const validatedInput = validator ? validator(input) : input
 
       if (validatedInput !== null) {
+        rl.close()
         return formatAnswer(validatedInput, format)
       }
 
       if (defaultValue !== undefined && typeof defaultValue !== 'string') {
+        rl.close()
         return formatAnswer(defaultValue, format)
       }
 
@@ -44,6 +46,7 @@ async function getInput(
       console.clear()
     } catch (error) {
       if (defaultValue !== undefined) {
+        rl.close()
         return formatAnswer(defaultValue, format)
       }
       handleError(error)

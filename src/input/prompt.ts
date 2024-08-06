@@ -20,7 +20,6 @@ export function promptUser(
     rl.question(blue(`${DEFAULT_SELECTION_ICON} `), (answer: string) => {
       clearTimeout(timer)
       try {
-        rl.close()
         resolve(answer.trim() || defaultValue)
       } catch (error) {
         reject(new Error('Failed to close readline interface'))

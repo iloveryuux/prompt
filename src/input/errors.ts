@@ -6,6 +6,7 @@ export function handleError(error: Error): void {
     console.log(red('❌ Time out. Exiting.'))
     process.exit(1)
   } else {
-    throw error
+    console.error(red(`❌ ${error.message}`))
+    console.clear()
   }
 }
