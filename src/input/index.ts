@@ -19,16 +19,41 @@ async function getInput(
 ): Promise<string | number | boolean> {
   const rl = createReadline()
 
-  while (true) {
-    console.log(brightCyan(question))
+  const displayInvalidEntryMessage = () => {
+    console.clear()
+    console.log(red('❌ Invalid entry. Please try again.'))
+  }
 
+  const handleDefaultValue = async (): Promise<string | number | boolean> => {
+    rl.close()
+    return formatAnswer(defaultValue, format)
+  }
+
+  const getInputFromUser = async (): Promise<string> => {
+    console.log(brightCyan(question))
+    return promptUser(
+      rl,
+      timeout,
+      typeof defaultValue === 'string' ? defaultValue : undefined
+    )
+  }
+
+  while (true) {
     try {
-      const input = await promptUser(
-        rl,
-        timeout,
-        typeof defaultValue === 'string' ? defaultValue : undefined
-      )
-      const validatedInput = validator ? validator(input) : input
+      const input = await getInputFromUser()
+      const trimmedInput = input.trim()
+
+      if (!trimmedInput) {
+        if (defaultValue !== undefined) {
+          return await handleDefaultValue()
+        }
+
+        displayInvalidEntryMessage()
+        await sleep(1000)
+        continue
+      }
+
+      const validatedInput = validator ? validator(trimmedInput) : trimmedInput
 
       if (validatedInput !== null) {
         rl.close()
@@ -36,18 +61,14 @@ async function getInput(
       }
 
       if (defaultValue !== undefined && typeof defaultValue !== 'string') {
-        rl.close()
-        return formatAnswer(defaultValue, format)
+        return await handleDefaultValue()
       }
 
-      console.clear()
-      console.log(red('❌ Invalid entry. Please try again.'))
+      displayInvalidEntryMessage()
       await sleep(1000)
-      console.clear()
     } catch (error) {
       if (defaultValue !== undefined) {
-        rl.close()
-        return formatAnswer(defaultValue, format)
+        return await handleDefaultValue()
       }
       handleError(error)
     }
