@@ -1,17 +1,17 @@
+import { red } from '@ryuux/palette'
 import { KEY_CTRL_C, KEY_DOWN, KEY_ENTER, KEY_UP } from '../shared/constants'
 import { sleep } from '../shared/utils'
 import { renderMenu } from './display'
-import { red } from '@ryuux/palette'
 
-import type { KeyActionMap, MenuIcons } from '../types'
+import type { ActionMap, IconSet } from '../types'
 
 export function createKeyActionMap(
   title: string,
   options: string[],
   onSelection: (index: number) => void,
   input: NodeJS.ReadableStream,
-  icons?: MenuIcons
-): KeyActionMap {
+  icons?: IconSet
+): ActionMap {
   let selectedIndex = 0
 
   const updateAndRenderMenu = (newIndex: number) => {

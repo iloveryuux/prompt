@@ -1,9 +1,9 @@
-import { DEFAULT_TITLE_ICON, DEFAULT_SELECTION_ICON } from '../shared/constants'
-import { getVisibleCount } from '../shared/utils'
-import { blue, bold } from '@ryuux/palette'
 import readline from 'node:readline'
+import { blue, bold } from '@ryuux/palette'
+import { DEFAULT_SELECTION_ICON, DEFAULT_TITLE_ICON } from '../shared/constants'
+import { getVisibleCount } from '../shared/utils'
 
-import type { MenuIcons } from '../types'
+import type { IconSet } from '../types'
 
 const clearScreen = (): void => {
   readline.cursorTo(process.stdout, 0, 0)
@@ -37,7 +37,7 @@ export const renderMenu = (
   title: string,
   options: string[],
   selectedIndex: number,
-  icons: MenuIcons = {}
+  icons: IconSet = {}
 ): void => {
   const {
     title: titleIcon = DEFAULT_TITLE_ICON,

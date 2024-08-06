@@ -1,22 +1,22 @@
-import { handleInput, restoreStdinMode, setStdinRawMode } from './stdin'
 import { createKeyActionMap } from './actions'
 import { setupCleanup } from './cleanup'
 import { renderMenu } from './display'
+import { handleInput, restoreStdinMode, setStdinRawMode } from './stdin'
 
-import type { KeyActionMap, Menu, MenuIcons } from '../types'
+import type { ActionMap, IconSet, MenuItem } from '../types'
 
 export async function menu(
   title: string,
   options: string[],
-  icons?: Partial<MenuIcons>
-): Promise<Menu> {
-  return new Promise<Menu>(resolve => {
+  icons?: Partial<IconSet>
+): Promise<MenuItem> {
+  return new Promise<MenuItem>(resolve => {
     const selectedIndex = 0
 
     setStdinRawMode()
 
     const handleSelection = (index: number) => {
-      const result: Menu = {
+      const result: MenuItem = {
         index,
         text: options[index]
       }
@@ -29,7 +29,7 @@ export async function menu(
       restoreStdinMode()
     }
 
-    const keyActions: KeyActionMap = createKeyActionMap(
+    const keyActions: ActionMap = createKeyActionMap(
       title,
       options,
       handleSelection,

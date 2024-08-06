@@ -1,13 +1,13 @@
-export interface Menu {
+export interface MenuItem {
   index: number
   text: string
 }
 
-export interface KeyActionMap {
+export interface ActionMap {
   [key: string]: () => void
 }
 
-export interface MenuIcons {
+export interface IconSet {
   title?: string
   selected?: string
 }
