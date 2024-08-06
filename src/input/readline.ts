@@ -1,6 +1,6 @@
 import readline from 'node:readline'
 
-export function createReadlineInterface(): readline.Interface {
+export function createReadline(): readline.Interface {
   return readline.createInterface({
     input: process.stdin,
     output: process.stdout,

@@ -1,6 +1,7 @@
 import type readline from 'node:readline'
-import { blue } from '@ryuux/palette'
+
 import { DEFAULT_SELECTION_ICON } from '../shared/constants'
+import { blue } from '@ryuux/palette'
 
 export function promptUser(
   rl: readline.Interface,

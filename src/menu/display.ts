@@ -1,9 +1,10 @@
-import readline from 'node:readline'
-import { blue, bold } from '@ryuux/palette'
+import type { IconSet } from '../types'
+
 import { DEFAULT_SELECTION_ICON, DEFAULT_TITLE_ICON } from '../shared/constants'
 import { getVisibleCount } from '../shared/utils'
+import { blue, bold } from '@ryuux/palette'
 
-import type { IconSet } from '../types'
+import readline from 'node:readline'
 
 const clearScreen = (): void => {
   readline.cursorTo(process.stdout, 0, 0)

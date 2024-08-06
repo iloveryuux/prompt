@@ -1,9 +1,9 @@
+import type { ActionMap, IconSet, MenuItem } from '../types'
+
+import { handleInput, restoreStdinMode, setStdinRawMode } from './stdin'
 import { createKeyActionMap } from './actions'
 import { setupCleanup } from './cleanup'
 import { renderMenu } from './display'
-import { handleInput, restoreStdinMode, setStdinRawMode } from './stdin'
-
-import type { ActionMap, IconSet, MenuItem } from '../types'
 
 export async function menu(
   title: string,

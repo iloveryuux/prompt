@@ -1,12 +1,14 @@
+import type { InputConfig, Validator, Format } from '../types'
+
 import { brightCyan, red } from '@ryuux/palette'
 import { TIMEOUT_MS } from '../shared/constants'
 import { sleep } from '../shared/utils'
-import type { Format, InputConfig, Validator } from '../types'
-import { handleError } from './errors'
+
+import { createReadline } from './readline'
 import { formatAnswer } from './formatters'
-import { promptUser } from './prompt'
-import { createReadlineInterface } from './readline'
 import { validators } from './validators'
+import { handleError } from './errors'
+import { promptUser } from './prompt'
 
 async function getInput(
   question: string,
@@ -15,7 +17,7 @@ async function getInput(
   format: Format = 'none',
   defaultValue?: string | number | boolean
 ): Promise<string | number | boolean> {
-  const rl = createReadlineInterface()
+  const rl = createReadline()
 
   while (true) {
     console.log(brightCyan(question))

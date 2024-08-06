@@ -1,9 +1,10 @@
-import { red } from '@ryuux/palette'
+import type { ActionMap, IconSet } from '../types'
+
 import { KEY_CTRL_C, KEY_DOWN, KEY_ENTER, KEY_UP } from '../shared/constants'
 import { sleep } from '../shared/utils'
-import { renderMenu } from './display'
+import { red } from '@ryuux/palette'
 
-import type { ActionMap, IconSet } from '../types'
+import { renderMenu } from './display'
 
 export function createKeyActionMap(
   title: string,

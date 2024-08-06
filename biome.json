@@ -2,5 +2,8 @@
   "extends": ["@ryuux/config/biome"],
   "files": {
     "ignore": ["package.json"]
+  },
+  "organizeImports": {
+    "enabled": false
   }
 }
