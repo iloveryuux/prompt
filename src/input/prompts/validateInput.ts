@@ -17,6 +17,16 @@ export async function getValidatedInput<T>(
 ): Promise<T> {
   const rl = createReadline()
 
+  const handleDefaultValue = () => {
+    rl.close()
+    return formatters[format](defaultValue as unknown as string) as T
+  }
+
+  const handleInvalidInput = async () => {
+    await InvalidEntryMessage()
+    return getValidatedInput(question, validator, timeout, format, defaultValue)
+  }
+
   try {
     console.log(brightCyan(question))
     const input = await promptUser(
@@ -27,42 +37,27 @@ export async function getValidatedInput<T>(
     const trimmedInput = input.trim()
 
     if (!trimmedInput) {
-      if (defaultValue !== undefined) {
-        rl.close()
-        return formatters[format](defaultValue as unknown as string) as T
-      }
-      await InvalidEntryMessage()
-      return getValidatedInput(
-        question,
-        validator,
-        timeout,
-        format,
-        defaultValue
-      )
+      return defaultValue !== undefined
+        ? handleDefaultValue()
+        : handleInvalidInput()
     }
 
     const validatedInput = validator
       ? validator(trimmedInput)
       : (trimmedInput as unknown as T)
+
     if (validatedInput !== null) {
       rl.close()
       return formatters[format](validatedInput as unknown as string) as T
     }
 
-    if (defaultValue !== undefined) {
-      rl.close()
-      return formatters[format](defaultValue as unknown as string) as T
-    }
-
-    await InvalidEntryMessage()
-    return getValidatedInput(question, validator, timeout, format, defaultValue)
+    return defaultValue !== undefined
+      ? handleDefaultValue()
+      : handleInvalidInput()
   } catch (error) {
     handleError(error as Error)
-    if (defaultValue !== undefined) {
-      rl.close()
-      return formatters[format](defaultValue as unknown as string) as T
-    }
-    rl.close()
-    return Promise.reject(error)
+    return defaultValue !== undefined
+      ? handleDefaultValue()
+      : Promise.reject(error)
   }
 }
