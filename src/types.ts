@@ -12,6 +12,13 @@ export interface MenuIcons {
   selected?: string
 }
 
-export type ValidatorFunction = (
-  answer: string
-) => string | number | boolean | null
+export type Validator = (input: string) => string | number | boolean | null
+
+export type Format = 'uppercase' | 'lowercase' | 'capitalize' | 'none'
+
+export type InputConfig = {
+  type?: 'number' | 'boolean'
+  timeout?: number
+  format?: Format
+  default?: string | number | boolean
+}
