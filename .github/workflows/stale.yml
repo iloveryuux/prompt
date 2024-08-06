@@ -1,0 +1,30 @@
+name: '🦭 Close Stale Issues and PRs'
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '15 1 * * *'
+
+permissions:
+  issues: write
+  pull-requests: write
+
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/stale@v9
+        with:
+          stale-issue-message: |
+            ❌ This issue has been inactive for 14 days. 📣
+
+            If this is a mistake, just comment on the issue or remove the stale label. 
+            The issue will be closed in 5 days if there's no further activity.
+          stale-pr-message: |
+            ❌ This PR has been inactive for 14 days. 📣
+
+            If this is a mistake, comment on the PR, remove the stale label, or merge it yourself! 
+            The PR will be closed in 5 days if there's no further activity. 
+            Remember, if the PR is approved and checks have passed, you **can merge it yourself!**
+          days-before-stale: 14
+          days-before-close: 5
