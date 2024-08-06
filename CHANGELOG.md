@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.3.1](https://github.com/iloveryuux/prompt/compare/v2.3.0...v2.3.1) (2024-08-06)
+
+
+### Bug Fixes
+
+* loop when the correct parameter is not passed ([10bb58b](https://github.com/iloveryuux/prompt/commit/10bb58bb279e0ae7a9d253c59a5db05f6b3461cc))
+
 ## [2.3.0](https://github.com/iloveryuux/prompt/compare/v2.2.1...v2.3.0) (2024-08-05)
 
 
