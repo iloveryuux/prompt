@@ -1,5 +1,5 @@
 import { input as inputFunc } from './input'
-import { menu as menuFunc } from './menu/menu'
+import { menu as menuFunc } from './menu'
 
 const prompt = {
   menu: menuFunc,
