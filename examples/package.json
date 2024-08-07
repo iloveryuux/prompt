@@ -6,9 +6,10 @@
   "keywords": ["example", "prompt-example"],
   "scripts": {
     "menu": "node menu/WhatIsYourFavoritePokemon.js",
-    "input": "node input/WhatIsYourAge.js"
+    "input": "node input/WhatIsYourAge.js",
+    "spinner": "node spinner/WaitingFunction.js"
   },
   "dependencies": {
-    "@ryuux/prompt": "^2.3.0"
+    "@ryuux/prompt": "^2.4.0"
   }
 }
