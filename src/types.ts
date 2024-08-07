@@ -20,3 +20,18 @@ export interface InputConfig<T = string> {
   format?: Format
   default?: T
 }
+export type SpinnerColor =
+  | 'black'
+  | 'red'
+  | 'green'
+  | 'yellow'
+  | 'blue'
+  | 'magenta'
+  | 'cyan'
+  | 'white'
+
+export interface SpinnerConfig {
+  color?: SpinnerColor
+  title?: string
+  framePosition?: 'left' | 'right'
+}
