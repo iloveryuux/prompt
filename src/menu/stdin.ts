@@ -11,6 +11,8 @@ export function restoreStdinMode() {
 
 export function handleInput(keyActions: Record<string, () => void>) {
   return (input: string) => {
-    keyActions[input]()
+    if (keyActions[input]) {
+      keyActions[input]()
+    }
   }
 }
