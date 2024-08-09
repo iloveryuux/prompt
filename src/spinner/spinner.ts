@@ -1,7 +1,6 @@
 import type { SpinnerConfig } from '../types'
 
-import { getColorFunction } from './colors'
-
+import { getColorFunction } from '../shared/colors'
 import { red } from '@ryuux/palette'
 import readline from 'node:readline'
 
