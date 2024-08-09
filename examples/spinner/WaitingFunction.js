@@ -1,4 +1,4 @@
-import { spinner } from './dist/index.js'
+import { spinner } from '@ryuux/prompt'
 
 async function Task() {
   return new Promise(resolve => {
