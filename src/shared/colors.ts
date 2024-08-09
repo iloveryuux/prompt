@@ -1,4 +1,4 @@
-import type { SpinnerColor } from '../types'
+import type { Colors } from '../types'
 import {
   black,
   red,
@@ -21,8 +21,6 @@ const colorFunctions: Record<string, (text: string) => string> = {
   white
 }
 
-export function getColorFunction(
-  color: SpinnerColor
-): (text: string) => string {
+export function getColorFunction(color: Colors): (text: string) => string {
   return colorFunctions[color] || colorFunctions.white
 }

@@ -20,7 +20,8 @@ export interface InputConfig<T = string> {
   format?: Format
   default?: T
 }
-export type SpinnerColor =
+
+export type Colors =
   | 'black'
   | 'red'
   | 'green'
@@ -31,7 +32,24 @@ export type SpinnerColor =
   | 'white'
 
 export interface SpinnerConfig {
-  color?: SpinnerColor
+  color?: Colors
   title?: string
   framePosition?: 'left' | 'right'
+}
+
+export interface TableConfig {
+  head?: string[]
+  body: string[][]
+  opts?: {
+    colors?: {
+      head?: Colors
+      data?: Colors
+    }
+    border?: {
+      horiz?: string
+      left?: string
+      right?: string
+      middle?: string
+    }
+  }
 }
