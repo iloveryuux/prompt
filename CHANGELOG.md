@@ -1,5 +1,22 @@
 # Changelog
 
+## [2.4.0](https://github.com/iloveryuux/prompt/compare/v2.3.1...v2.4.0) (2024-08-10)
+
+
+### Features
+
+* add new function `box` ([7a08229](https://github.com/iloveryuux/prompt/commit/7a08229d0954aa11fb4a8ec9644f331b312b41e3))
+* add TABLES ([785a662](https://github.com/iloveryuux/prompt/commit/785a662e4d63b30ae3859085358876c2d15bdd11))
+* adding table support to sqlite databases ([0af6669](https://github.com/iloveryuux/prompt/commit/0af66697f1598eb15f1c17a8aa31c60320e5bdd2))
+* create new spinner function ([ceb5db3](https://github.com/iloveryuux/prompt/commit/ceb5db3a209d63787daeaee3688a44943c4eb5cc))
+
+
+### Bug Fixes
+
+* **deps:** migrate from deprecated package to new package ([93c1e96](https://github.com/iloveryuux/prompt/commit/93c1e963efd2bb0836523865d72d04ce6fb32b69))
+* import ([4089830](https://github.com/iloveryuux/prompt/commit/40898307c09e62b5e5a382b715ffaef7f777d224))
+* when an expected key is not pressed ([834bd08](https://github.com/iloveryuux/prompt/commit/834bd0829bd6bd461488103f057a4ea3ba189f78))
+
 ## [2.3.1](https://github.com/iloveryuux/prompt/compare/v2.3.0...v2.3.1) (2024-08-06)
 
 
