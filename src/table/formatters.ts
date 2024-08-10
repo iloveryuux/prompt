@@ -1,5 +1,3 @@
-import { createLine } from './borders'
-
 export const formatRow = (
   row: string[],
   widths: number[],

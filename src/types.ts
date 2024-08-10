@@ -39,7 +39,9 @@ export interface SpinnerConfig {
 
 export interface TableConfig {
   head?: string[]
-  body: string[][]
+  body?: string[][]
+  database?: string
+  tableName?: string
   opts?: {
     colors?: {
       head?: Colors
@@ -53,3 +55,5 @@ export interface TableConfig {
     }
   }
 }
+
+export type RowData = { [key: string]: string | number | null }

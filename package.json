@@ -38,7 +38,9 @@
     "commit": "commitlint --edit ${1}"
   },
   "dependencies": {
-    "@ryuux/palette": "^1.0.0"
+    "@ryuux/palette": "^1.0.0",
+    "sqlite": "^5.1.1",
+    "sqlite3": "^5.1.7"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.8.3",
