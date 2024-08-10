@@ -57,3 +57,10 @@ export interface TableConfig {
 }
 
 export type RowData = { [key: string]: string | number | null }
+
+export interface BoxConfig {
+  top?: number
+  bottom?: number
+  left?: number
+  right?: number
+}
