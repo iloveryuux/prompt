@@ -47,7 +47,7 @@
     "@commitlint/cli": "^21.0.0",
     "@commitlint/config-conventional": "^21.0.0",
     "@ryuux/rules": "^1.1.2",
-    "@types/node": "^24.0.0",
+    "@types/node": "^26.0.0",
     "lefthook": "^2.0.0",
     "tsup": "^9.0.0",
     "typescript": "^7.0.0",
